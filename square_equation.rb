@@ -24,16 +24,20 @@ c = gets.chomp.to_i
 
 d = b ** 2 - 4 * a * c
 
-puts 'There is no rational root'; return if d < 0
-
-if Math.sqrt(d).to_i ** 2 == d
-  x1 = (-b + Math.sqrt(d)) / (2 * a).to_i
-  x2 = (-b - Math.sqrt(d)) / (2 * a).to_i if d > 0
+if d < 0
+  puts 'There is no rational root'
+elsif d == 0
+  puts "x1 = x2 =#{-b / (2 * a)}"
 else
-  x1 = "(#{-b} + sqrt(#{d}))/#{2 * a}"
-  x2 = "(#{-b} - sqrt(#{d}))/#{2 * a}" if d > 0
-end
+  if Math.sqrt(d).to_i ** 2 == d
+    x1 = (-b + Math.sqrt(d)) / (2 * a).to_i
+    x2 = (-b - Math.sqrt(d)) / (2 * a).to_i
+  else
+    x1 = "(#{-b if b != 0}+sqrt(#{d}))/#{2 * a}"
+    x2 = "(#{-b if b != 0}-sqrt(#{d}))/#{2 * a}"
+  end
 
-puts "x1 = #{x1} #{"x2 = #{x2}" if x2}"
+  puts "x1 = #{x1}\nx2 = #{x2}"
+end
 
 
