@@ -25,7 +25,7 @@ c = gets.chomp.to_i
 d = b ** 2 - 4 * a * c
 
 if d < 0
-  puts 'There is no rational root'
+  puts 'There is no root'
 elsif d == 0
   puts "x1 = x2 =#{-b / (2 * a)}"
 else
